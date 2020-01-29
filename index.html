@@ -1,52 +1,28 @@
-
- <!DOCTYPE html>
-<html>
-<head>
-    <title>mail yönetimi</title>
-    <meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale=1.0, user-scalable=no"/>
-
-    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
-    <script>
-function fon() 
-{
-$.ajax({
-  type: 'POST',
-  url: 'https://mandrillapp.com/api/1.0/messages/send.json',
-  data: {
-    'key': ' https://us4.api.mailchimp.com/3.0/automations/6c44d320bf/emails/ae931f49d3/queue',
-     'id':'brkkrmt@hotmail.com.tr',
-    'message': {
-      'from_email': 'brkkrmt@gmail.com',
-      'to': [
-          {
-            'email': 'brkkrmt@hotmail.com.tr',
-            'name': 'test',
-            'type': 'to'
-          }
-        ],
-      'autotext': 'true',
-      'subject': 'YOUR SUBJECT HERE!',
-      'html': 'YOUR EMAIL CONTENT HERE! YOU CAN USE HTML!'
-    }
-  }
- }).done(function(response) {
-   console.log(response); // if you're into that sorta thing
- });
+835BF53ADB17E9477E6A0B876229FA28AC226F78395A61283FF3D60FE202EBE4EA6BE3C979DC6F5150593DA9929175AA
+2525
+<html><head>
+ </head>
+ <body onload="start()">
 
 
+<script src="https://smtpjs.com/v3/smtp.js">
+</script>
+  <script>
+ function start() {
+  
 
-}
-    </script>
-</head>
-
-<body>
-
-<!--This wrapping container is used to get the width of the whole content-->
-<div id="container">
-<input type="button" onclick="fon();">
-
-
-</div>
-</body>
+ Email.send({
+    Host : "smtp.elasticemail.com",
+    Username : "brkkrmt@gmail.com",
+    Password : "985F5B2AB724A92FC7FBE9B8B3B4E2287F9E",
+    To : 'them@website.com',
+    From : "you@isp.com",
+    Subject : "This is the subject",
+    Body : "And this is the body"
+}).then(
+  message => alert(message)
+);
+ }
+  </script>
+ </body>
 </html>
